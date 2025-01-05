@@ -39,7 +39,7 @@ class Session
         return isset($_SESSION[$key]);
     }
 
-    public static function get($key, $default=false)
+    public static function get($key, $default = false)
     {
         if (Session::isset($key)) {
             return $_SESSION[$key];
@@ -53,7 +53,8 @@ class Session
         return Session::$user;
     }
 
-    public static function getUserSession(){
+    public static function getUserSession()
+    {
         return Session::$usersession;
     }
 
@@ -81,14 +82,16 @@ class Session
     public static function isAuthenticated()
     {
         //TODO: Is it a correct implementation?
-        if(is_object(Session::getUserSession())){
+        if (is_object(Session::getUserSession())) {
             return Session::getUserSession()->isValid();
-        } 
+        }
         return false;
     }
 
-    public static function ensureLogin(){
-        if(!Session::isAuthenticated()){
+    public static function ensureLogin()
+    {
+        if (!Session::isAuthenticated()) {
+            Session::set('_redirect', $_SERVER['REQUEST_URI']);
             header("Location: /login.php");
             die();
         }

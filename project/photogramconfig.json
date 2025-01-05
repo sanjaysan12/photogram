@@ -3,5 +3,6 @@
 	"db_username": "Sanjay",
 	"db_password": "Sanjay12@",
 	"db_name": "Sanjay_Photogram",
-	"base_path": "/"
+	"base_path": "/",
+	"upload_path": "/home/ksanjay02444/photogram_uploads"
 }

@@ -3,10 +3,12 @@
 // setcookie("testcookie", "testvalue", time() + (86400 * 30), "/");
 include 'libs/load.php';
 
-print("_SESSION \n");
-print_r($_SESSION);
-print("_SERVER \n");
-print_r($_SERVER);
+// print("_SESSION \n");
+// print_r($_SESSION);
+// print("_SERVER \n");
+// print_r($_SERVER);
+print("FILES \n");
+print_r($_FILES)
 
 // if (isset($_GET['clear'])) {
 //     printf("Clearing...\n");

@@ -1,6 +1,6 @@
 <?php
 
-$login = true;
+$login_page = true;
 
 //TODO: Redirect to a requested URL instead of base path on login
 if (isset($_POST['email_address']) and isset($_POST['password'])) {
@@ -8,13 +8,19 @@ if (isset($_POST['email_address']) and isset($_POST['password'])) {
     $password = $_POST['password'];
 
     $result = UserSession::authenticate($email_address, $password);
-    $login = false;
+    $login_page = false;
 }
-if (!$login) {
+if (!$login_page) {
     if ($result) {
+		$redirect = get_config('base_path');
+		$should_redirect = Session::get('_redirect');
+		if(isset($should_redirect)){
+			$redirect = $should_redirect;
+			Session::set('_redirect', false);
+		}	
         ?>
 <script>
-	window.location.href = "<?=get_config('base_path')?>"
+	window.location.href = "<?=$redirect?>"
 </script>
 
 <?php
