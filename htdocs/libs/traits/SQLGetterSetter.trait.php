@@ -11,10 +11,12 @@ trait SQLGetterSetter{
 
     private function _get_data($var)
     {
+        // print($var);
         if (!$this->conn) {
             $this->conn = Database::getConnection();
         }
         $sql = "SELECT `$var` FROM `$this->table` WHERE `id` = $this->id";
+        // echo $sql ."--". __CLASS__;
         //print($sql);
         $result = $this->conn->query($sql);
         if ($result and $result->num_rows == 1) {

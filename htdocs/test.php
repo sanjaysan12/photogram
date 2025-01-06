@@ -1,9 +1,9 @@
-<pre>
+
 <?php
 include 'libs/load.php';
-
-$post = new Post(1);
-print($post->getPost_Text());
-// print_r($_SERVER);
-// print(basename('/hello/world/script.php', '.php'));
-?></pre>
+print(Session::getUser()->getEmail());
+$img_temp = $_FILES['post_image']['tmp_name'];
+$text = $_POST['post_text'];
+echo $img_temp;
+Post::registerpost($text,$img_temp);
+?>

@@ -60,6 +60,7 @@ class User
         $this->conn = Database::getConnection();
         $this->username = $username;
         $this->id = null;
+        $this->table = 'auth';
         $sql = "SELECT `id` FROM `auth` WHERE `username`= '$username' OR `id` = '$username' LIMIT 1";
         $result = $this->conn->query($sql);
         if ($result->num_rows) {
